@@ -1,0 +1,32 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="my_user_form">
+            <field name="name">my.user</field>
+            <field name="model">my.user</field>
+            <field name="arch" type="xml">
+                <form>
+                    <group>
+                        <field name="fname" />
+                    </group>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="my_user_list">
+            <field name="name">my.user</field>
+            <field name="model">my.user</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="fname" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="my_user_action_window">
+            <field name="name">my.user</field>
+            <field name="res_model">my.user</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+    </data>
+</odoo>

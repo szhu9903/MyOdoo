@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <menuitem id="main_order_menu" name="ZSJ-odoo" sequence="0" web_icon="order,static/src/img/order.png"/>
+    <menuitem id="order_my_user" name="用户" parent="main_order_menu" action="my_user_action_window" sequence="0"/>
+</odoo>
