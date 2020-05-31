@@ -7,6 +7,8 @@
                 <form>
                     <group>
                         <field name="fname" />
+                        <field name="fuser_code" />
+                        <field name="fuser_pwd" />
                     </group>
                 </form>
             </field>
@@ -19,6 +21,8 @@
             <field name="arch" type="xml">
                 <tree>
                     <field name="fname" />
+                    <field name="fuser_code" />
+                    <field name="fuser_pwd" />
                 </tree>
             </field>
         </record>
