@@ -11,6 +11,7 @@ class Myuser(models.Model):
     fname = fields.Char('用户姓名',track_visibility='onchange')
     fuser_code = fields.Char('账号',track_visibility='onchange')
     fuser_pwd = fields.Char('密码',track_visibility='onchange')
+    fdel_flag = fields.Integer('删除标志',default=0)
 
     @api.model
     def create(self, vals):

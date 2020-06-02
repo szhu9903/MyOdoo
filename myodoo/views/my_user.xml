@@ -9,6 +9,7 @@
                         <field name="fname" />
                         <field name="fuser_code" />
                         <field name="fuser_pwd" />
+                        <field name="fdel_flag" />
                     </group>
                 </form>
             </field>
@@ -23,6 +24,16 @@
                     <field name="fname" />
                     <field name="fuser_code" />
                 </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="my_user_filter">
+            <field name="name">my.user</field>
+            <field name="model">my.user</field>
+            <field name="arch" type="xml">
+                <search string="Fdel User">
+                    <filter name="fdel" string="有效用户" domain="[('fdel_flag','=',0)]" />
+                </search>
             </field>
         </record>
 
