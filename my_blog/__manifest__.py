@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "ZsjBlog",
+    'name': "MyBlog",
 
     'summary': """
       个人博客""",

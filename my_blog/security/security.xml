@@ -1,6 +1,6 @@
 <?xml version="1.1" encoding="utf-8"?>
 <odoo>
-    <record id="zsj_blog_admin_group" model="res.groups">
+    <record id="my_blog_admin_group" model="res.groups">
         <field name="name">ZSJ_Blog管理员</field>
         <field name="comment">管理配置项信息</field>
     </record>

@@ -1,0 +1,3 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+my_blog_admin_group_access_ir_zsj_blog,zsj_blog_perm_base,my_blog.model_zsj_blog,my_blog_admin_group,1,1,1,1
+my_blog_admin_group_access_ir_zsj_blog_user,zsj_blog_user_perm_base,my_blog.model_zsj_blog_user,my_blog_admin_group,1,1,1,1
