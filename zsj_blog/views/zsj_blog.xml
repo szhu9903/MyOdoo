@@ -1,0 +1,80 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="zsj_blog_form">
+            <field name="name">文章</field>
+            <field name="model">zsj.blog</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <label for="zblog_title" class="oe_edit_only"/>
+                        <h1>
+                            <field name="zblog_title"/>
+                        </h1>
+                        <group>
+                            <field name="zblog_brief"/>
+                            <field name="zblog_cover" />
+                            <field name="zuser_id" />
+                        </group>
+                        <group>
+                            <field name="zblog_views"/>
+                            <field name="zblog_comment_count"/>
+                            <field name="zblog_like_count"/>
+                        </group>
+                        <field name="zcreate_date"/>
+                        <field name="zblog_content"/>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="zsj_blog_list">
+            <field name="name">文章</field>
+            <field name="model">zsj.blog</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="zblog_title"/>
+                    <field name="zblog_brief" />
+                    <field name="zblog_cover" />
+                    <field name="zuser_id" />
+                    <field name="zblog_views" />
+                    <field name="zblog_comment_count" />
+                    <field name="zblog_like_count" />
+                    <field name="zcreate_date" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="my_user_kanban" model="ir.ui.view">
+            <field name="name">文章</field>
+            <field name="model">zsj.blog</field>
+            <field name="arch" type="xml">
+                <kanban>
+                    <field name="zblog_title"/>
+                    <field name="zblog_brief"/>
+                    <field name="zcreate_date"/>
+                    <!--<templates>-->
+                        <!---->
+                    <!--</templates>-->
+                </kanban>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="zsj_blog_filter">
+            <field name="name">文章</field>
+            <field name="model">zsj.blog</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="zblog_title"/>
+                    <filter name="zdel_blog" string="有效文章" domain="[('zdel_flag','=',0)]" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="zsj_blog_action_window">
+            <field name="name">文章</field>
+            <field name="res_model">zsj.blog</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context" eval="{'search_default_zdel_blog':1}" />
+        </record>
+    </data>
+</odoo>

@@ -1,2 +1,0 @@
-id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
-my_odoo_admin_group_access_ir_my_user,my_user_perm_base,myodoo.model_my_user,my_odoo_admin_group,1,1,1,1

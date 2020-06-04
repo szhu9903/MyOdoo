@@ -1,12 +1,12 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Myodoo",
+    'name': "ZsjBlog",
 
     'summary': """
-      ZSJ个人odoo""",
+      个人博客""",
 
     'description': """
-        ZSJ个人odoo
+        个人博客
     """,
 
     'author': "My Company",
@@ -25,7 +25,8 @@
     'data': [
         'security/ir.model.access.csv',
         'views/index.xml',
-        'views/my_user.xml',
+        'views/zsj_blog.xml',
+        'views/zsj_blog_user.xml',
         'security/security.xml',
         'views/templates.xml',
     ],

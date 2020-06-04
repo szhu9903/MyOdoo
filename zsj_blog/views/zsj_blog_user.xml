@@ -1,0 +1,63 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="zsj_blog_user_form">
+            <field name="name">用户</field>
+            <field name="model">zsj.blog.user</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <label for="zaccount" class="oe_edit_only"/>
+                            <h1>
+                                <field name="zaccount"/>
+                            </h1>
+                        <group>
+                            <field name="zaccount"/>
+                            <field name="zgithub_token"/>
+                            <field name="zpwd"/>
+                            <field name="zuser_photo"/>
+                        </group>
+                        <group>
+                            <field name="zuser_name"/>
+                            <field name="zsex"/>
+                            <field name="zphone"/>
+                            <field name="zemail"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record model="ir.ui.view" id="zsj_blog_user_list">
+            <field name="name">用户</field>
+            <field name="model">zsj.blog.user</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="zuser_name"/>
+                    <field name="zaccount" />
+                    <field name="zsex" />
+                    <field name="zphone" />
+                    <field name="zemail" />
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="zsj_blog_user_filter">
+            <field name="name">用户</field>
+            <field name="model">zsj.blog.user</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="zaccount"/>
+                    <filter name="zdel_blog_user" string="有效用户" domain="[('zdel_flag','=',0)]" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="zsj_blog_user_action_window">
+            <field name="name">用户</field>
+            <field name="res_model">zsj.blog.user</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="context" eval="{'search_default_zdel_blog_user':1}" />
+        </record>
+    </data>
+</odoo>

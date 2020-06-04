@@ -1,7 +1,7 @@
 <?xml version="1.1" encoding="utf-8"?>
 <odoo>
-    <record id="my_odoo_admin_group" model="res.groups">
-        <field name="name">Myodoo管理员</field>
+    <record id="zsj_blog_admin_group" model="res.groups">
+        <field name="name">ZSJ_Blog管理员</field>
         <field name="comment">管理配置项信息</field>
     </record>
 </odoo>
