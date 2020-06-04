@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "MyBlog",
+    'name': "my_blog",
 
     'summary': """
       个人博客""",
@@ -23,11 +23,14 @@
 
     # always loaded
     'data': [
-        'security/ir.model.access.csv',
-        'views/index.xml',
+
+
         'views/zsj_blog.xml',
         'views/zsj_blog_user.xml',
+        'views/index.xml',
         'security/security.xml',
+        'security/ir.model.access.csv',
+
         'views/templates.xml',
     ],
     # only loaded in demonstration mode
