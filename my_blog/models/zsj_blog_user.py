@@ -22,7 +22,7 @@ class ZsjBlogUser(models.Model):
 
     @api.model
     def create(self, vals):
-        pwd = self.get('zpwd')
+        pwd = vals.get('zpwd')
         if pwd:
             hl = hashlib.md5(pwd.encode(encoding='utf-8'))
             vals['zpwd'] = hl.hexdigest()
@@ -30,7 +30,7 @@ class ZsjBlogUser(models.Model):
         return res
 
     def write(self, vals):
-        pwd = self.get('zpwd')
+        pwd = vals.get('zpwd')
         if pwd:
             hl = hashlib.md5(pwd.encode(encoding='utf-8'))
             vals['zpwd'] = hl.hexdigest()
