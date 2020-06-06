@@ -4,7 +4,7 @@ import hashlib
 class ZsjBlogUser(models.Model):
     _name = 'zsj.blog.user'
     _description = '用户'
-    _rec_name = 'zaccount'
+    _rec_name = 'zuser_name'
     _inherit = ['mail.thread']
     _order = 'zaccount asc'
 

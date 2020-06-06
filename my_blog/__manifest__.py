@@ -1,36 +1,28 @@
 # -*- coding: utf-8 -*-
 {
+    # 模块名称
     'name': "my_blog",
-
-    'summary': """
-      个人博客""",
-
-    'description': """
-        个人博客
-    """,
-
-    'author': "My Company",
-    'website': "http://www.yourcompany.com",
-
-    # Categories can be used to filter modules in modules listing
-    # Check https://github.com/odoo/odoo/blob/13.0/odoo/addons/base/data/ir_module_category_data.xml
-    # for the full list
-    'category': 'Uncategorized',
+    #关键词
+    'summary': "个人博客",
+    #模块说明
+    'description': "个人博客",
+    #作者 网站
+    'author': "ZSJ",
+    'website': "https://www.zsjblog.com",
+    #类别
+    'category': 'Blog',
     'version': '0.1',
 
-    # any module necessary for this one to work correctly
+    # 本模块所依赖的模块，安装本模块会同时安装依赖的模块
     'depends': ['base','mail'],
 
-    # always loaded
+    # 加载的处理文件，总是加载
     'data': [
-
-
         'views/zsj_blog.xml',
         'views/zsj_blog_user.xml',
         'views/index.xml',
         'security/security.xml',
         'security/ir.model.access.csv',
-
         'views/templates.xml',
     ],
     # only loaded in demonstration mode
