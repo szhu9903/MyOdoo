@@ -11,17 +11,19 @@
                             <field name="zblog_title"/>
                         </h1>
                         <group>
-                            <field name="zblog_brief"/>
-                            <field name="zblog_cover" />
-                            <field name="zuser_id" />
+                            <group>
+                                <field name="zblog_brief"/>
+                                <field name="zblog_cover" />
+                                <field name="zuser_id" />
+                            </group>
+                            <group>
+                                <field name="zblog_views"/>
+                                <field name="zblog_comment_count"/>
+                                <field name="zblog_like_count"/>
+                                <field name="zcreate_date"/>
+                            </group>
                         </group>
-                        <group>
-                            <field name="zblog_views"/>
-                            <field name="zblog_comment_count"/>
-                            <field name="zblog_like_count"/>
-                        </group>
-                        <field name="zcreate_date"/>
-                        <field name="zblog_content"/>
+                            <field name="zblog_content"/>
                     </sheet>
                 </form>
             </field>
