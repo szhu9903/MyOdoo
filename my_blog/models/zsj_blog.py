@@ -12,6 +12,7 @@ class ZsjBlog(models.Model):
     zblog_brief = fields.Text('文章摘要',track_visibility='onchange')
     zblog_cover = fields.Char('文章封面',track_visibility='onchange')
     zuser_id = fields.Many2one('zsj.blog.user',string='作者')
+    zblog_type = fields.Many2one('zsj.blog.type',string='文章分类')
     zblog_content = fields.Html('博文内容',track_visibility='onchange')
     zblog_views = fields.Integer('浏览量')
     zblog_comment_count = fields.Integer('评论总数')

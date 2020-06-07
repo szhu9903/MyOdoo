@@ -20,6 +20,7 @@
     'data': [
         'views/zsj_blog.xml',
         'views/zsj_blog_user.xml',
+        'views/zsj_blog_type.xml',
         'views/index.xml',
         'security/security.xml',
         'security/ir.model.access.csv',

@@ -1,0 +1,62 @@
+<odoo>
+    <data>
+
+        <record model="ir.ui.view" id="zsj_blog_type_form">
+            <field name="name">文章分类</field>
+            <field name="model">zsj.blog.type</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <label for="ztype_name" class="oe_edit_only"/>
+                        <h1>
+                            <field name="ztype_name"/>
+                        </h1>
+                        <group>
+                            <group>
+                                <field name="zblog_count"/>
+                                <field name="zdel_flag"/>
+                            </group>
+                            <group>
+                                <field name="zup_type" />
+                                <field name="zcreate_by" />
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="zsj_blog_type_list">
+            <field name="name">文章分类</field>
+            <field name="model">zsj.blog.type</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="ztype_name"/>
+                    <field name="zblog_count"/>
+                    <field name="zup_type" />
+                    <field name="zcreate_by" />
+                    <field name="zdel_flag"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="zsj_blog_type_filter">
+            <field name="name">文章分类</field>
+            <field name="model">zsj.blog.type</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="ztype_name" />
+                    <filter name="ztype_del" string="有效分类" domain="[('zdel_flag','=',0)]" />
+                </search>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="zsj_blog_type_action_window">
+            <field name="name">文章分类</field>
+            <field name="res_model">zsj.blog.type</field>
+            <field name="view_mode">tree,form</field>
+            <field name="context" eval="{'search_default_ztype_del':1}"/>
+        </record>
+
+    </data>
+</odoo>

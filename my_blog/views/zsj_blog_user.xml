@@ -56,7 +56,7 @@
         <record model="ir.actions.act_window" id="zsj_blog_user_action_window">
             <field name="name">用户</field>
             <field name="res_model">zsj.blog.user</field>
-            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_mode">tree,form</field>
             <field name="context" eval="{'search_default_zdel_blog_user':1}" />
         </record>
     </data>
