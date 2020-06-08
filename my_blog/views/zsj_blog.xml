@@ -41,6 +41,7 @@
                     <field name="zblog_title"/>
                     <field name="zblog_brief" />
                     <field name="zblog_cover" />
+                    <field name="zblog_data"  widget="image" class="oe_kanban_avatar"/>
                     <field name="zblog_type" />
                     <field name="zuser_id" />
                     <field name="zblog_views" />
@@ -86,7 +87,12 @@
                                 <div class="oe_kanban_body">
                                     <div>
                                         <strong>
-                                            <a type="open"><field name="zblog_title" /></a>
+                                            <!--t-attf- 该指令查找表达式代码块进行运行并替换结果-->
+                                            <a type="open" t-attf-class="oe_kanban_text_{{
+                                            record.priority.raw_value lt 2
+                                            ? 'black':'red'}}">
+                                                <field name="zblog_title" />
+                                            </a>
                                         </strong>
                                     </div>
                                     <ul>
