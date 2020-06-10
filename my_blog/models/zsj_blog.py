@@ -20,6 +20,9 @@ class ZsjBlog(models.Model):
     zblog_like_count = fields.Integer('点赞数量')
     zcreate_date = fields.Datetime('发表时间')
     zdel_flag = fields.Integer('删除标志',default=0)
+    # zsta = fields.Float('a')
+    # zend = fields.Float('b')
+    # znum = fields.Float(compute='_compute_znum',store=True)
 
     color = fields.Integer('颜色')
     priority = fields.Selection([
@@ -34,7 +37,13 @@ class ZsjBlog(models.Model):
     '看板状态',default='normal')
 
 
-
+    # @api.depends('zsta','zend')
+    # def _compute_znum(self):
+    #     for record in self:
+    #         if record.zend == 0:
+    #             record.znum = record.zsta
+    #         else:
+    #             record.znum = round(record.zsta/record.zend,2)
 
 
 
