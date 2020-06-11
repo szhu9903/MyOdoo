@@ -24,9 +24,7 @@
                                 <field name="zblog_comment_count"/>
                                 <field name="zblog_like_count"/>
                                 <field name="zcreate_date"/>
-
                             </group>
-
                         </group>
                             <field name="zblog_content"/>
                     </sheet>
