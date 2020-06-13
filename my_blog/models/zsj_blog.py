@@ -1,5 +1,11 @@
 # -*- coding: utf-8 -*-
 from odoo import fields,models,api
+import traceback,base64
+from xlrd import open_workbook
+from io import StringIO
+from PIL import Image
+
+
 
 class ZsjBlog(models.Model):
     _name = 'zsj.blog'
@@ -37,6 +43,46 @@ class ZsjBlog(models.Model):
     '看板状态',default='normal')
 
 
+    @api.model
+    def create(self, vals):
+        zblog_data = vals.get('zblog_data')
+        if zblog_data:
+            img_data = base64.b64decode(zblog_data)
+            with open('test.jpg', 'wb') as af:
+                af.write(img_data)
+                af.close()
+        res = super(ZsjBlog,self).create(vals)
+        return res
+
+
+    def write(self, vals):
+        zblog_data = vals.get('zblog_data')
+        if zblog_data:
+            img_data = base64.b64decode(zblog_data)
+            with open('test.jpg', 'wb') as af:
+                af.write(img_data)
+                af.close()
+        res = super(ZsjBlog,self).write(vals)
+        return res
+
+
+
+
+#图片文件读取
+    def get_zblog_data(self):
+        try:
+            actives = self.browse(self.env.context.get('active_ids'))
+            for record in actives and actives:
+                bytes_data = record.zblog_data
+                if bytes_data:
+                    img_data = base64.b64decode(bytes_data)
+                    with open('test.jpg','wb') as af:
+                        af.write(img_data)
+                        af.close()
+        except:
+            traceback.print_exc()
+
+#动态字段
     # @api.depends('zsta','zend')
     # def _compute_znum(self):
     #     for record in self:

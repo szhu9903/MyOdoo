@@ -24,6 +24,7 @@
                                 <field name="zblog_comment_count"/>
                                 <field name="zblog_like_count"/>
                                 <field name="zcreate_date"/>
+                                <field name="zblog_data" widget='image' class="oe_avatar oe_left" />
                             </group>
                         </group>
                             <field name="zblog_content"/>
@@ -40,7 +41,6 @@
                     <field name="zblog_title"/>
                     <field name="zblog_brief" />
                     <field name="zblog_cover" />
-                    <field name="zblog_data"  widget="image" class="oe_kanban_avatar"/>
                     <field name="zblog_type" />
                     <field name="zuser_id" />
                     <field name="zblog_views" />
@@ -137,6 +137,17 @@
                 </search>
             </field>
         </record>
+
+        <record model="ir.actions.server" id="action_zsj_blog_done">
+            <field name="name">下载封面</field>
+            <field name="model_id" ref="model_zsj_blog"/>
+            <field name="binding_model_id" ref="model_zsj_blog"/>
+            <field name="state">code</field>
+            <field name="code">
+                action = model.get_zblog_data()
+            </field>
+        </record>
+
 
         <record model="ir.actions.act_window" id="zsj_blog_action_window">
             <field name="name">文章</field>
