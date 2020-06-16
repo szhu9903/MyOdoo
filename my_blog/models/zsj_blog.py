@@ -28,7 +28,7 @@ class ZsjBlog(models.Model):
     zdel_flag = fields.Integer('删除标志',default=0)
     # zsta = fields.Float('a')
     # zend = fields.Float('b')
-    # znum = fields.Float(compute='_compute_znum',store=True)
+    # znum = fields.Float(compute='_compute_znum',store=True)   #store 是否实际存在数据库中
 
     color = fields.Integer('颜色')
     priority = fields.Selection([
