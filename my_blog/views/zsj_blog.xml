@@ -18,6 +18,9 @@
                                 <field name="zblog_cover" />
                                 <field name="zuser_id" />
                                 <field name="zblog_type" />
+                                <field name="zsta" />
+                                <field name="zend" />
+                                <field name="znum" />
                             </group>
                             <group>
                                 <field name="zblog_views"/>
@@ -147,7 +150,6 @@
                 action = model.get_zblog_data()
             </field>
         </record>
-
 
         <record model="ir.actions.act_window" id="zsj_blog_action_window">
             <field name="name">文章</field>

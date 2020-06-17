@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from odoo import fields,models,api
+from odoo import fields,models,api,osv
 import traceback,base64
 from xlrd import open_workbook
 from io import StringIO
@@ -26,9 +26,9 @@ class ZsjBlog(models.Model):
     zblog_like_count = fields.Integer('点赞数量')
     zcreate_date = fields.Datetime('发表时间')
     zdel_flag = fields.Integer('删除标志',default=0)
-    # zsta = fields.Float('a')
-    # zend = fields.Float('b')
-    # znum = fields.Float(compute='_compute_znum',store=True)   #store 是否实际存在数据库中
+    zsta = fields.Float('a')
+    zend = fields.Float('b')
+    znum = fields.Float(compute='_compute_znum',store=True)   #store 是否实际存在数据库中
 
     color = fields.Integer('颜色')
     priority = fields.Selection([
@@ -57,6 +57,8 @@ class ZsjBlog(models.Model):
 
     def write(self, vals):
         zblog_data = vals.get('zblog_data')
+        # if self.zblog_views <0:
+        #     raise osv.except_osv(_(u'警告'),_(u'浏览量不小于0'))
         if zblog_data:
             img_data = base64.b64decode(zblog_data)
             with open('test.jpg', 'wb') as af:
@@ -82,14 +84,24 @@ class ZsjBlog(models.Model):
         except:
             traceback.print_exc()
 
-#动态字段
-    # @api.depends('zsta','zend')
-    # def _compute_znum(self):
-    #     for record in self:
-    #         if record.zend == 0:
-    #             record.znum = record.zsta
-    #         else:
-    #             record.znum = round(record.zsta/record.zend,2)
+    #动态字段
+    @api.depends('zsta','zend')
+    def _compute_znum(self):
+        for record in self:
+            if record.zend == 0:
+                record.znum = record.zsta
+            else:
+                record.znum = round(record.zsta/record.zend,2)
+
+    @api.onchange('zblog_views')
+    def _onchange_zblog_views(self):
+        if self.zblog_views < 0:
+            return {
+                'warning':{
+                    'title':'警告',
+                    'message':'浏览量不能小于0'
+                }
+            }
 
 
 
