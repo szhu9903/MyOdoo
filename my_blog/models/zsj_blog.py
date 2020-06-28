@@ -84,14 +84,14 @@ class ZsjBlog(models.Model):
         except:
             traceback.print_exc()
 
-    #动态字段
-    @api.depends('zsta','zend')
-    def _compute_znum(self):
-        for record in self:
-            if record.zend == 0:
-                record.znum = record.zsta
-            else:
-                record.znum = round(record.zsta/record.zend,2)
+    # #动态字段
+    # @api.depends('zsta','zend')
+    # def _compute_znum(self):
+    #     for record in self:
+    #         if record.zend == 0:
+    #             record.znum = record.zsta
+    #         else:
+    #             record.znum = round(record.zsta/record.zend,2)
 
 
 
