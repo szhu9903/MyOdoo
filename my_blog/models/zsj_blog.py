@@ -26,9 +26,9 @@ class ZsjBlog(models.Model):
     zblog_like_count = fields.Integer('点赞数量')
     zcreate_date = fields.Datetime('发表时间')
     zdel_flag = fields.Integer('删除标志',default=0)
-    zsta = fields.Float('a')
-    zend = fields.Float('b')
-    znum = fields.Float(compute='_compute_znum',store=True)   #store 是否实际存在数据库中
+    # zsta = fields.Float('a')
+    # zend = fields.Float('b')
+    # znum = fields.Float(compute='_compute_znum',store=True)   #store 是否实际存在数据库中
 
     color = fields.Integer('颜色')
     priority = fields.Selection([
@@ -92,6 +92,8 @@ class ZsjBlog(models.Model):
                 record.znum = record.zsta
             else:
                 record.znum = round(record.zsta/record.zend,2)
+
+
 
     @api.onchange('zblog_views')
     def _onchange_zblog_views(self):
