@@ -105,7 +105,28 @@ class ZsjBlog(models.Model):
                 }
             }
 
-
-
+#form跳转
+    # def get_hs_room_detail(self):
+    #     sql = """
+    #     select id from hs_room_detail where froom_num=%s
+    #     """%self.id
+    #     self._cr.execute(sql)
+    #     res = self._cr.fetchall()
+    #     room_list = []
+    #     for i in res:
+    #         room_list.append(i[0])
+    #     formview_ref = self.env.ref('hs_drom.view_hs_room_detail_form', False)
+    #     treeview_ref = self.env.ref('hs_drom.view_hs_room_detail_tree', False)
+    #     return {
+    #         'name': '房间明细表',
+    #         'view_type': 'form',
+    #         'view_mode': 'tree,form',
+    #         'res_model': 'hs.room.detail',
+    #         'domain': "[('id', 'in', %s)]" % room_list,
+    #         'views': [(treeview_ref and treeview_ref.id or False, 'tree'),
+    #                   (formview_ref and formview_ref.id or False, 'form')],
+    #         'type': 'ir.actions.act_window',
+    #         'target': 'new'
+    #     }
 
 
