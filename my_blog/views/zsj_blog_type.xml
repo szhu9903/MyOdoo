@@ -31,6 +31,8 @@
             <field name="model">zsj.blog.type</field>
             <field name="arch" type="xml">
                 <tree>
+                    <button name="get_zsj_blog" string="查看所有文章" type="object" class="oe_stat_button" icon="fa-list-ul">
+                    </button>
                     <field name="ztype_name"/>
                     <field name="zblog_count"/>
                     <field name="zup_type" />
@@ -51,14 +53,6 @@
             </field>
         </record>
 
-        <record model="ir.actions.server" id="action_zsj_blog_type_done">
-            <field name="name">查看所有文章</field>
-            <field name="model_id" ref="model_zsj_blog_type"/>
-            <field name="binding_model_id" ref="model_zsj_blog_type"/>
-            <field name="code">
-                action = model.get_zsj_blog()
-            </field>
-        </record>
 
         <record model="ir.actions.act_window" id="zsj_blog_type_action_window">
             <field name="name">文章分类</field>
