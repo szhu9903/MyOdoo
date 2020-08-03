@@ -17,7 +17,18 @@
                                 <field name="zdel_flag"/>
                             </group>
                             <group>
-                                <field name="zup_type" />
+                                <!--
+                                many2many Widget
+                                    many2many 使用关联对象的列表视图展示
+                                    many2many_tags 标签式显示
+                                        no_quick_create：移除创建“a“
+                                        no_create_edit：移除创建并编辑…
+                                        no_create：no_quick_create和no_create_edit
+                                    many2many_checkboxes 多选
+                                    many2many_kanban 看板
+                                -->
+
+                                <field name="zup_type" options="{'no_create':'True'}"/>
                                 <field name="zcreate_by" />
                             </group>
                         </group>
