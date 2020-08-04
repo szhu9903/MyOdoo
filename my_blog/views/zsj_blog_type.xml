@@ -27,8 +27,11 @@
                                     many2many_checkboxes 多选
                                     many2many_kanban 看板
                                 -->
+                                <!--
+                                domain 筛选 ，可根据自己字段对上级进行筛选，后不加引号当前字段值
+                                -->
 
-                                <field name="zup_type" options="{'no_create':'True'}"/>
+                                <field name="zup_type" options="{'no_create':'True'}" domain="[('zdel_flag','=',0)]"/>
                                 <field name="zcreate_by" />
                             </group>
                         </group>
