@@ -1,6 +1,8 @@
 
 from odoo import models,fields,api
 import hashlib
+from werkzeug.security import generate_password_hash
+
 class ZsjBlogUser(models.Model):
     _name = 'zsj.blog.user'
     _description = '用户'
@@ -21,18 +23,35 @@ class ZsjBlogUser(models.Model):
     zdel_flag = fields.Integer('删除标志', default=0)
 
     @api.model
-    def create(self, vals):
+    def create(self,vals):
         pwd = vals.get('zpwd')
         if pwd:
-            hl = hashlib.md5(pwd.encode(encoding='utf-8'))
-            vals['zpwd'] = hl.hexdigest()
-        res =  super(ZsjBlogUser,self).create(vals)
+            vals['zpwd'] = generate_password_hash(pwd)
+        res = super(ZsjBlogUser,self).create(vals)
         return res
 
-    def write(self, vals):
+    def write(self,vals):
         pwd = vals.get('zpwd')
         if pwd:
-            hl = hashlib.md5(pwd.encode(encoding='utf-8'))
-            vals['zpwd'] = hl.hexdigest()
+            vals['zpwd'] = generate_password_hash(pwd)
         res = super(ZsjBlogUser,self).write(vals)
         return res
+
+
+    #
+    # @api.model
+    # def create(self, vals):
+    #     pwd = vals.get('zpwd')
+    #     if pwd:
+    #         hl = hashlib.md5(pwd.encode(encoding='utf-8'))
+    #         vals['zpwd'] = hl.hexdigest()
+    #     res =  super(ZsjBlogUser,self).create(vals)
+    #     return res
+
+    # def write(self, vals):
+    #     pwd = vals.get('zpwd')
+    #     if pwd:
+    #         hl = hashlib.md5(pwd.encode(encoding='utf-8'))
+    #         vals['zpwd'] = hl.hexdigest()
+    #     res = super(ZsjBlogUser,self).write(vals)
+    #     return res
